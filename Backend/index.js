@@ -3,13 +3,19 @@ const cors = require("cors");
 const { exec } = require("child_process");
 const fs = require("fs");
 const path = require("path");
-
+require('dotenv').config();
 const app = express();
-app.use(cors());
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const PORT = 5003;
+app.use(cors());
+
+const PORT = process.env.PORT || 5003;
+
+
+
 const OUTPUT_DIR = path.join(__dirname, "downloads");
 if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR);
 
@@ -64,5 +70,7 @@ app.post("/download", (req, res) => {
     });
   });
 });
+
+
 
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
