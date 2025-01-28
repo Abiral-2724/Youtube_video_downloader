@@ -16,7 +16,7 @@ const YouTubeDownloader = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("https://youtube-video-downloader-df60.onrender.com/download", { url }, {
+      const response = await axios.post("https://youtube-video-downloader-2-8u9x.onrender.com/download", { url }, {
         responseType: "blob",
       });
 
