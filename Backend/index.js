@@ -11,6 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const corsOptions = {
     origin:'https://youtube-video-downloader-1-aako.onrender.com/',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
     credential:true
 }
 app.use(cors(corsOptions));
